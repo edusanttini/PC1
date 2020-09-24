@@ -6,27 +6,25 @@ void getSequence(){
     printf("Digite uma sequencia: \n");
     scanf("%d", &atual);
 }
-//Metodo para calcular a sequencia de maior comprimento decrescente e a soma do mesmo
+
+//Method to calculate the longest decreasing sequency e its own sum
 void calcLengthAndSum(){
     int anterior;
     int comp = 0;
     soma = 0;
-    if(!(atual == -1)){//Condicao de finalização da sequencia, caso o primeiro numero seja -1 
+    if(!(atual == -1)){ //Exit condition
         comp = 1;
         maxComp = 1;
         anterior = atual;
         soma = atual;
-        scanf("%d", &atual);//Recebe o segundo valor da sequencia
-        do{//início do loop
-            if(anterior > atual){//condicao de sequencias, se satisfeita, incrementa o comprimento e realiza a soma
+        scanf("%d", &atual);//Gets the sec value from the sequency
+        do{
+            if(anterior > atual){//Sequency condition, if satisfied, increases length and do the sum
                 comp++;
                 soma = soma + atual;                
             }            
-            /*condicao para quebra de sequencia, so quebra quando possui maior comprimento, portanto,
-            *em caso de mais de uma sequencia de mesmo comprimento, a soma será referente sempre referente a primeira sequencia.
-            */
             else{
-                if(comp > maxComp){//condicao de verificacao da sequencia de maior comprimento, caso exista uma quebra de sequencia
+                if(comp > maxComp){//longest sequency condition verify, in case there is a sequency brake
                     maxComp = comp;
                     finalSum = soma;
                 }
@@ -34,9 +32,9 @@ void calcLengthAndSum(){
                 soma = atual;
             }
             anterior = atual;
-            scanf("%d", &atual);//recebe os demais valores da sequencia
-        }while(atual != -1);//condiciona ao loop, se satisfeito, retorna a linha 22
-        if(comp > maxComp){//condicao de verificacao da sequencia de maior comprimento, caso nao exista uma quebra de sequencia
+            scanf("%d", &atual);
+        }while(atual != -1);
+        if(comp > maxComp){//longest sequency condition verify, in case there is not a sequency brake
             maxComp = comp;
             finalSum = soma;
         }
